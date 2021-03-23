@@ -17,14 +17,14 @@ class Item(BaseModel):
     tax: Optional[float] = None
 
 
-@app.get("/i/{fjas}")
-def fjas_funksjon(fjas):
-    if fjas == "en":
-        return {"message": 1}
-    if fjas == "to":
-        return {"message": 2}
-    if fjas == "tre":
-        return {"message": 3}
+@app.get("/i/{fjas_param}")
+def fjas_funksjon(fjas_param):
+    fjas_dict = {"en": 1, "to": 2, "tre": 3}
+
+    if fjas_param in fjas_dict.keys():
+        return fjas_dict[fjas_param]
+    else:
+        return {"message": "No valid key received."}
 
 
 @app.post("/items/")
