@@ -23,4 +23,5 @@ USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 # CMD ["gunicorn", "--bind", "0.0.0.0:8000", "-k", "uvicorn.workers.UvicornWorker", "venv\Lib\site-packages\uvicorn\__init__:app"]
-CMD [ "python3", "-m" , "uvicorn main:app  --reload", "--host=0.0.0.0"]
+# CMD [ "python3", "-m" , "uvicorn main:app  --reload", "--host=0.0.0.0"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"] 
