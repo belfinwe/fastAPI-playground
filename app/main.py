@@ -10,6 +10,11 @@ def read_root():
     return {"Hello": "World"}
 
 
+@app.get("/testing")
+def read_testing():
+    return {"Test": "Stuff"}
+
+
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Optional[str] = None):
     return {"item_id": item_id, "q": q}
